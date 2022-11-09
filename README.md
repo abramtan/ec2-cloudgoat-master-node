@@ -68,6 +68,8 @@ chmod +x cloudgoat.py
 ```
 
 - Missing Step in Vulnerable Lambda Cheatsheet (create profile)
+
+Reference: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html
 ```
 aws configure --profile bilbo
 ```
