@@ -62,6 +62,16 @@ chmod +x cloudgoat.py
 
 - Setup AWS CLI (Follow this guide: https://rhinosecuritylabs.com/aws/introducing-cloudgoat-2/)
 
+## Useful Commands
+
+```
+aws iam list-users
+aws configure list-profiles
+aws iam list-roles #lists roles for current account
+```
+
+## Scenario 1: Vulnerable Lambda
+
 - Create scenario
 ```
 ./cloudgoat.py create vulnerable_lambda
@@ -74,9 +84,14 @@ Before starting, create bilbo profile (https://docs.aws.amazon.com/cli/latest/us
 aws configure --profile bilbo
 ```
 
-Between steps 2 and 3, create assumed_role profile:
+Between steps 2 and 3, create assumed_role profile (https://aws.amazon.com/premiumsupport/knowledge-center/authenticate-mfa-cli/):
 ```
 aws configure --profile assumed_role
 nano ~/.aws/credentials
 ```
 Add in "aws_session_token = [session token obtained from step 2 goes here]" to the assumed_role profile.
+
+## Take Note
+- When running CloudGoat as a test / interview test, might want to consider blocking access to the CloudGoat repo (https://github.com/RhinoSecurityLabs/cloudgoat) as cheatsheets are available there.
+
+- There are some YouTube videos that show CloudGoat solutions as well, may want to block access to those as well (https://youtube.com/playlist?list=PLrkO8muGZWPAasPkb6IopqBguOaJ7W2za).
