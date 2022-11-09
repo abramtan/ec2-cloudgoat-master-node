@@ -67,9 +67,16 @@ chmod +x cloudgoat.py
 ./cloudgoat.py create vulnerable_lambda
 ```
 
-- Missing Step in Vulnerable Lambda Cheatsheet (create profile)
+- Missing Steps in Vulnerable Lambda Cheatsheet
 
-Reference: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html
+Before starting, create bilbo profile (https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html):
 ```
 aws configure --profile bilbo
 ```
+
+Between steps 2 and 3, create assumed_role profile:
+```
+aws configure --profile assumed_role
+nano ~/.aws/credentials
+```
+Add in "aws_session_token = [session token obtained from step 2 goes here]" to the assumed_role profile.
