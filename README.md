@@ -66,3 +66,8 @@ chmod +x cloudgoat.py
 ```
 ./cloudgoat.py create vulnerable_lambda
 ```
+
+- Missing Step in Vulnerable Lambda Cheatsheet (create profile)
+```
+aws configure --profile bilbo
+```
