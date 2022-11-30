@@ -1,6 +1,6 @@
-# Custom CloudGoat Scenario Creation Guide
+# CUSTOM CLOUDGOAT SCENARIO CREATION GUIDE
 
-# How CloudGoat Create Scenario Works
+# How CloudGoat create scenario works
 
 1. Creates scenario-instance folder in project root directory
 2. Copy TF files from scenario to scenario-instance folder
@@ -13,7 +13,7 @@
 
 
 
-# Files / Folders needed for Custom Scenario
+# Files / folders needed to create custom scenario
 
 ### Required
 1. cloudgoat/scenarios/scenario-name/terraform
@@ -28,6 +28,9 @@ provider "aws" {
   region = "${var.region}"
 }
 ```
+4. cloudgoat/scenarios/scenario-name/manifest.yml
+
+The manifest.yml file is where textual info about the scenario like the scenario name, author, version, help, last updated should be stored and is invoked upon the help command.
 
 ### Optional
 1. cloudgoat/scenarios/scenario-name/start.sh
@@ -35,4 +38,11 @@ provider "aws" {
 3. cloudgoat/scenarios/scenario-name/README.md
 4. cloudgoat/scenarios/scenario-name/cheat_sheet.md
 5. cloudgoat/scenarios/scenario-name/exploitation_route.png
-6. cloudgoat/scenarios/scenario-name/manifest.yml ????
+
+
+
+# How CloudGoat destroy scenario works
+
+
+
+# Files required for CloudGoat destroy
