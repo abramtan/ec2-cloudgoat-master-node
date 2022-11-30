@@ -43,6 +43,8 @@ The manifest.yml file is where textual info about the scenario like the scenario
 
 # How CloudGoat destroy scenario works
 
+Using two key functions, destroy_all_scenarios() and destroy_scenario(). Nothing too important to take note of when creating a custom scenario as CloudGoat basically does a TF destroy operation, followed by 'trashing' the scenario-instance files by moving them to a 'trash' folder.
 
 
 # Files required for CloudGoat destroy
+None.
