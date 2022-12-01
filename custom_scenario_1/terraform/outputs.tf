@@ -5,6 +5,7 @@ output "cloudgoat_output_phished_access_key_id" {
 
 output "cloudgoat_output_phished_secret_key" {
     value = aws_iam_access_key.phisherman.secret
+    sensitive = true
 }
 
 # AWS Account ID
