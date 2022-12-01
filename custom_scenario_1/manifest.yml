@@ -1,0 +1,14 @@
+---
+  # The name of the scenario, alpha-numeric characters only, and underscore-separated
+- name: custom_scenario_1
+  # The name of the author(s), comma separated
+- author: Abram Tan
+  # The version of the scenario, where major versions are breaking changes and minor are small fixes.
+- version: 1.0
+  # Text displayed to the user when they type "{{ scenario_name }} help"
+- help: |
+        In this scenario, you don't need to do anything. 
+
+# Records the date upon which this scenario was last updated, in MM-DD-YYYY format
+- last-updated: 01-12-2022
+...
