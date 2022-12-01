@@ -18,6 +18,18 @@
 ### Required
 1. cloudgoat/scenarios/scenario-name/terraform
 2. cloudgoat/scenarios/scenario-name/terraform/outputs.tf
+
+Outputs get saved to the start.txt file in the scenario-instance folder, and are used as a starting point for the scenario.
+
+When attempting to read sensitive root module output data, the value must be marked as sensitive, for example (https://support.hashicorp.com/hc/en-us/articles/5175257151891-How-to-output-sensitive-data-with-Terraform):
+
+```
+output "cloudgoat_output_phished_secret_key" {
+    value = aws_iam_access_key.phisherman.secret
+    sensitive = true
+}
+```
+
 3. cloudgoat/scenarios/scenario-name/terraform/provider.tf
 
 Needs to be setup to use named profiles to work, just copy this code:
@@ -31,6 +43,31 @@ provider "aws" {
 4. cloudgoat/scenarios/scenario-name/manifest.yml
 
 The manifest.yml file is where textual info about the scenario like the scenario name, author, version, help, last updated should be stored and is invoked upon the help command.
+
+5. Must have the following TF variables:
+
+```
+variable "profile" {
+    # CloudGoat provides the profile info upon runtime?
+    description = "The AWS profile to use."
+}
+
+variable "region" {
+    description = "The AWS region to deploy resources to."
+    default = "us-east-1"
+}
+
+variable "cgid" {
+    # CloudGoat provides the profile info upon runtime?
+    description = "CGID variable for unique naming."
+}
+
+variable "cg_whitelist" {
+    # CloudGoat provides the profile info upon runtime?
+    description = "User's public IP address(es)."
+    type = list(string)
+}
+```
 
 ### Optional
 1. cloudgoat/scenarios/scenario-name/start.sh
